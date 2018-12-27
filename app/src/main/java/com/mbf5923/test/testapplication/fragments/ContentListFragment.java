@@ -83,6 +83,7 @@ public class ContentListFragment extends Fragment implements ContentListFragment
                 Bundle bundle = new Bundle();
                 bundle.putString("title", contentsModels.get(position).getTitle());
                 bundle.putString("thumb", contentsModels.get(position).getThumbnailUrl());
+                bundle.putInt("id", contentsModels.get(position).getId());
                 detailFragment.setArguments(bundle);
                 ((MainActivity)getActivity()).addExpedFragment(detailFragment);
 

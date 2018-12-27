@@ -25,4 +25,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView" />
+
+    <Button
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btnreload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reload" />
+
+    <ProgressBar
+        android:id="@+id/prgsreload"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
 </RelativeLayout>
