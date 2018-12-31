@@ -1,8 +1,8 @@
-package com.mbf5923.test.testapplication.models;
+package com.mbf5923.test.testapplication.Data;
 
 import com.google.gson.annotations.SerializedName;
 
-public class contentsModel {
+public class Contents {
     @SerializedName("albumId")
     private Integer albumId;
     @SerializedName("id")
@@ -14,7 +14,7 @@ public class contentsModel {
     @SerializedName("thumbnailUrl")
     private String thumbnailUrl;
 
-    public contentsModel(Integer albumId, Integer id, String title, String url, String thumbnailUrl) {
+    public Contents(Integer albumId, Integer id, String title, String url, String thumbnailUrl) {
         this.albumId = albumId;
         this.id = id;
         this.title = title;

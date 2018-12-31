@@ -1,18 +1,13 @@
 package com.mbf5923.test.testapplication.activities;
 
-import android.content.res.Resources;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 
 import com.mbf5923.test.testapplication.R;
-import com.mbf5923.test.testapplication.fragments.ContentListFragment;
-import com.mbf5923.test.testapplication.presenter.ContentListFragmentPresenter;
+import com.mbf5923.test.testapplication.Home.HomeFragment;
 
 public class MainActivity extends AppCompatActivity  {
     private static final String BACK_STACK_ROOT_TAG = "fragment";
@@ -20,7 +15,7 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        addExpedFragment(new ContentListFragment());
+        addExpedFragment(new HomeFragment());
 
     }
 
@@ -56,7 +51,7 @@ public class MainActivity extends AppCompatActivity  {
         } else {
 
 //            getSupportFragmentManager().popBackStack();
-            addExpedFragment(new ContentListFragment());
+            addExpedFragment(new HomeFragment());
         }
 
     }
