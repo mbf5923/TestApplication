@@ -65,9 +65,6 @@ public class DetailFragment extends BaseFragment implements DetailContract.View 
     @OnClick(R.id.btnreload)
     public void reload(View view) {
         presenter.GetDetail(String.valueOf(postid));
-
-        prgsreload.setVisibility(View.VISIBLE);
-
     }
 
 
