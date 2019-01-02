@@ -9,8 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
+import dagger.android.support.DaggerFragment;
 
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends DaggerFragment {
     public View rootview;
 
     @Nullable

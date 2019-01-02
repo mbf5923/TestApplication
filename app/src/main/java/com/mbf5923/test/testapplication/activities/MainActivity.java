@@ -6,15 +6,22 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.mbf5923.test.testapplication.Base.BaseActivity;
 import com.mbf5923.test.testapplication.R;
 import com.mbf5923.test.testapplication.Home.HomeFragment;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends BaseActivity {
     private static final String BACK_STACK_ROOT_TAG = "fragment";
+
+    @Override
+    protected int getLayoutResId() {
+        return R.layout.activity_main;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
         addExpedFragment(new HomeFragment());
 
     }

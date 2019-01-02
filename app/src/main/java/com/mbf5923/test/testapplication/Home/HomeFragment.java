@@ -35,7 +35,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     @BindView(R.id.reccontents)
     RecyclerView reccontents;
     @Inject
-     HomePresenter presenter;
+    HomePresenter presenter;
+
+
 
 
     @Override
@@ -101,6 +103,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     public void onStart() {
         super.onStart();
         presenter.attachView(this);
+
     }
 
     @Override

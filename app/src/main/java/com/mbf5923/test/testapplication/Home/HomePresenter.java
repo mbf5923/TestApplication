@@ -1,9 +1,14 @@
 package com.mbf5923.test.testapplication.Home;
 
+import android.support.annotation.NonNull;
+
 import com.mbf5923.test.testapplication.Data.Contents;
 import com.mbf5923.test.testapplication.Data.DataSource;
+import com.mbf5923.test.testapplication.Data.Repository;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -13,10 +18,10 @@ import io.reactivex.schedulers.Schedulers;
 
 public class HomePresenter implements HomeContract.Presenter {
     private HomeContract.View view;
-    private DataSource dataSource;
+    private Repository dataSource;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
-
-    public HomePresenter(DataSource dataSource) {
+    @Inject
+    public HomePresenter(Repository dataSource) {
         this.dataSource = dataSource;
     }
 
@@ -47,7 +52,7 @@ public class HomePresenter implements HomeContract.Presenter {
     }
 
     @Override
-    public void attachView(HomeContract.View view) {
+    public void attachView(@NonNull HomeContract.View view) {
         this.view = view;
         GetContentsList();
     }
