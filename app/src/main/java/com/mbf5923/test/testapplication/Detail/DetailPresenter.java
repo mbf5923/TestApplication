@@ -3,9 +3,12 @@ package com.mbf5923.test.testapplication.Detail;
 import com.mbf5923.test.testapplication.Data.Contents;
 import com.mbf5923.test.testapplication.Data.DataSource;
 import com.mbf5923.test.testapplication.Data.Detail;
+import com.mbf5923.test.testapplication.Data.Repository;
 import com.mbf5923.test.testapplication.Home.HomeContract;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -15,10 +18,10 @@ import io.reactivex.schedulers.Schedulers;
 
 public class DetailPresenter implements DetailContract.Presenter {
     private DetailContract.View view;
-    private DataSource dataSource;
+    private Repository dataSource;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
-
-    public DetailPresenter(DataSource dataSource) {
+    @Inject
+    public DetailPresenter(Repository dataSource) {
         this.dataSource = dataSource;
     }
 
