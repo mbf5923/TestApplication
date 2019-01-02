@@ -21,6 +21,8 @@ import com.mbf5923.test.testapplication.R;
 import com.mbf5923.test.testapplication.Data.Detail;
 
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -40,13 +42,14 @@ public class DetailFragment extends BaseFragment implements DetailContract.View 
     @BindView(R.id.prgsreload)
     ProgressBar prgsreload;
     private int postid = 0;
-    private DetailContract.Presenter presenter;
+    @Inject
+     DetailPresenter presenter;
 
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        presenter = new DetailPresenter(new Repository());
+
 
     }
 

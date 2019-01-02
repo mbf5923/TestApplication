@@ -21,6 +21,8 @@ import com.mbf5923.test.testapplication.Base.BaseFragment;
 import com.mbf5923.test.testapplication.activities.MainActivity;
 import com.mbf5923.test.testapplication.Detail.DetailFragment;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 
 /**
@@ -32,13 +34,14 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     ProgressBar progressBar;
     @BindView(R.id.reccontents)
     RecyclerView reccontents;
-    private HomeContract.Presenter presenter;
+    @Inject
+     HomePresenter presenter;
 
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        presenter = new HomePresenter(new Repository());
+
 
     }
 
