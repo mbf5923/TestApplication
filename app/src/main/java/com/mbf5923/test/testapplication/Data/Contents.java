@@ -1,20 +1,25 @@
 package com.mbf5923.test.testapplication.Data;
 
-import com.google.gson.annotations.SerializedName;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.util.Log;
 
+import com.google.gson.annotations.SerializedName;
+@Entity
 public class Contents {
-    @SerializedName("albumId")
+
     private Integer albumId;
-    @SerializedName("id")
+    @PrimaryKey
     private Integer id;
-    @SerializedName("title")
+
     private String title;
-    @SerializedName("url")
+
     private String url;
-    @SerializedName("thumbnailUrl")
+
     private String thumbnailUrl;
 
     public Contents(Integer albumId, Integer id, String title, String url, String thumbnailUrl) {
+
         this.albumId = albumId;
         this.id = id;
         this.title = title;

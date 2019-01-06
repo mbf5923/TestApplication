@@ -22,6 +22,8 @@ public class MyApp extends MultiDexApplication implements HasActivityInjector {
     @Inject
     WorkerFactory workerFactory;
 
+
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -44,7 +46,11 @@ public class MyApp extends MultiDexApplication implements HasActivityInjector {
 
         WorkManager.initialize(this, config);
 
+
+
     }
+
+
 
     @Override
     public AndroidInjector<Activity> activityInjector() {

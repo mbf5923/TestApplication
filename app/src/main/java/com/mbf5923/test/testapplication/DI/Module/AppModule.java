@@ -1,10 +1,13 @@
 package com.mbf5923.test.testapplication.DI.Module;
 
+import android.arch.persistence.room.Room;
 import android.content.Context;
+import android.support.annotation.NonNull;
 
 import com.mbf5923.test.testapplication.DI.Quantifier.ApplicationContext;
 import com.mbf5923.test.testapplication.DI.Scope.ApplicationScope;
 
+import com.mbf5923.test.testapplication.Data.DB.AppDataBase;
 import com.mbf5923.test.testapplication.Data.Repository;
 import com.mbf5923.test.testapplication.Data.Worker.DaggerWorkerFactory;
 import com.mbf5923.test.testapplication.MyApp;
@@ -15,7 +18,7 @@ import dagger.Provides;
 
 @Module
 public class AppModule {
-    Repository apiClientImp;
+
 
 
     @Provides
@@ -30,5 +33,12 @@ public class AppModule {
     WorkerFactory provideWorkerFactory(Repository apiClientImp)
     {
         return new DaggerWorkerFactory(apiClientImp);
+    }
+
+    @ApplicationScope
+    @Provides
+    AppDataBase provideAppDataBase(@ApplicationContext Context context) {
+        return Room.databaseBuilder(context,
+                AppDataBase.class, "test-db").build();
     }
 }
