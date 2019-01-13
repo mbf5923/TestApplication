@@ -14,11 +14,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
+
 import com.mbf5923.test.testapplication.Base.BaseFragment;
 import com.mbf5923.test.testapplication.Data.Repository;
 import com.mbf5923.test.testapplication.R;
 import com.mbf5923.test.testapplication.Data.Detail;
+import com.squareup.picasso.Picasso;
 
 
 import javax.inject.Inject;
@@ -56,7 +57,8 @@ public class DetailFragment extends BaseFragment implements DetailContract.View 
     @Override
     public void setupViews() {
         tvtitle.setText(getArguments().getString("title"));
-        Glide.with(getContext()).load(getArguments().getString("thumb")).into(imglogo);
+        Picasso.get().load(getArguments().getString("thumb")).into(imglogo);
+
         postid = getArguments().getInt("id");
     }
 
@@ -74,7 +76,8 @@ public class DetailFragment extends BaseFragment implements DetailContract.View 
     @Override
     public void ShowDetail(Detail details) {
         tvtitle.setText(details.getTitle());
-        Glide.with(getContext()).load(details.getThumbnailUrl()).into(imglogo);
+        Picasso.get().load(details.getThumbnailUrl()).into(imglogo);
+
     }
 
     @Override

@@ -7,10 +7,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
+
 
 import com.mbf5923.test.testapplication.R;
 import com.mbf5923.test.testapplication.Data.Contents;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -79,7 +80,8 @@ public abstract class contentsAdapter extends RecyclerView.Adapter<contentsAdapt
             load();
         Contents movie = mainitemModelList.get(position);
         holder.tvtitle.setText(movie.getTitle());
-        Glide.with(holder.itemView.getContext()).load(movie.getThumbnailUrl()).into(holder.imglogo);
+        Picasso.get().load(movie.getThumbnailUrl()).into(holder.imglogo);
+
 
 
     }
