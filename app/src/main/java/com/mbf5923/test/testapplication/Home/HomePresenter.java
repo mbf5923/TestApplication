@@ -1,18 +1,16 @@
 package com.mbf5923.test.testapplication.Home;
 
 import android.os.AsyncTask;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.mbf5923.test.testapplication.Data.Contents;
 import com.mbf5923.test.testapplication.Data.DB.AppDataBase;
-import com.mbf5923.test.testapplication.Data.DataSource;
 import com.mbf5923.test.testapplication.Data.Repository;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
-import io.reactivex.Scheduler;
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;

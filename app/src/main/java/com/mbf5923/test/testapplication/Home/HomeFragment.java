@@ -3,15 +3,16 @@ package com.mbf5923.test.testapplication.Home;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.mbf5923.test.testapplication.Data.Repository;
 import com.mbf5923.test.testapplication.R;
 import com.mbf5923.test.testapplication.Data.Contents;
 
@@ -48,8 +49,16 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     }
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        if (savedInstanceState == null) {
+
+        }
+    }
+
+    @Override
     public void setupViews() {
-        reccontents.setLayoutManager(new LinearLayoutManager(getViewContext(), LinearLayoutManager.VERTICAL, false));
+        reccontents.setLayoutManager(new LinearLayoutManager(getViewContext(), RecyclerView.VERTICAL, false));
     }
 
     @Override

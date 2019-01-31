@@ -1,9 +1,9 @@
 package com.mbf5923.test.testapplication.activities;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.mbf5923.test.testapplication.Base.BaseActivity;
@@ -12,7 +12,7 @@ import com.mbf5923.test.testapplication.Home.HomeFragment;
 
 public class MainActivity extends BaseActivity {
     private static final String BACK_STACK_ROOT_TAG = "fragment";
-
+private boolean closeapp=true;
     @Override
     protected int getLayoutResId() {
         return R.layout.activity_main;
@@ -29,29 +29,33 @@ public class MainActivity extends BaseActivity {
 
 
 
-    public void addExpedFragment(Fragment fragment){
-        String backStateName =  fragment.getClass().getName();
-        String fragmentTag = backStateName;
 
+
+    public void addExpedFragment(Fragment fragment) {
+        String backStateName = fragment.getClass().getName();
         FragmentManager manager = getSupportFragmentManager();
-        boolean fragmentPopped = manager.popBackStackImmediate (backStateName, 0);
+        String fragmentTag = backStateName;
+        if (fragmentTag.equals("com.mbf5923.test.testapplication.Detail.DetailFragment")) {
+            closeapp = false;
+            manager.beginTransaction().add(R.id.framelayout, fragment, fragmentTag).commit();
+        }else {
+            closeapp = true;
+            if (manager.findFragmentByTag(fragmentTag) != null) {
+                manager.beginTransaction().show(fragment).commit();
+                manager.beginTransaction().remove(manager.findFragmentByTag("com.mbf5923.test.testapplication.Detail.DetailFragment")).commit();
+            } else {
+                manager.beginTransaction().add(R.id.framelayout, fragment, fragmentTag).commit();
+            }
 
-        if (!fragmentPopped && manager.findFragmentByTag(fragmentTag) == null){ //fragment not in back stack, create it.
-            FragmentTransaction ft = manager.beginTransaction();
-            ft.replace(R.id.framelayout, fragment, fragmentTag);
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-            ft.addToBackStack(backStateName);
-            ft.commit();
         }
-
     }
 
     @Override
     public void onBackPressed() {
 
-        int count = getSupportFragmentManager().getBackStackEntryCount();
 
-        if (count < 2) {
+
+        if (closeapp) {
             super.onBackPressed();
             this.finish();
             //additional code

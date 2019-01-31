@@ -1,8 +1,8 @@
 package com.mbf5923.test.testapplication.DI.Module;
 
-import android.arch.persistence.room.Room;
+import androidx.room.Room;
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.mbf5923.test.testapplication.DI.Quantifier.ApplicationContext;
 import com.mbf5923.test.testapplication.DI.Scope.ApplicationScope;

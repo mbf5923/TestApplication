@@ -3,12 +3,10 @@ package com.mbf5923.test.testapplication.Detail;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.util.Log;
-import android.view.LayoutInflater;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -16,7 +14,6 @@ import android.widget.Toast;
 
 
 import com.mbf5923.test.testapplication.Base.BaseFragment;
-import com.mbf5923.test.testapplication.Data.Repository;
 import com.mbf5923.test.testapplication.R;
 import com.mbf5923.test.testapplication.Data.Detail;
 import com.squareup.picasso.Picasso;
@@ -25,11 +22,7 @@ import com.squareup.picasso.Picasso;
 import javax.inject.Inject;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.observers.DisposableSingleObserver;
-import io.reactivex.schedulers.Schedulers;
 
 /**
  * A simple {@link Fragment} subclass.

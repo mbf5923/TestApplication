@@ -1,10 +1,8 @@
 package com.mbf5923.test.testapplication.Data;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
-import android.util.Log;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
-import com.google.gson.annotations.SerializedName;
 @Entity
 public class Contents {
 

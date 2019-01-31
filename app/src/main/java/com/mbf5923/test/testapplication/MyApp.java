@@ -1,7 +1,7 @@
 package com.mbf5923.test.testapplication;
 
 import android.app.Activity;
-import android.support.multidex.MultiDexApplication;
+import androidx.multidex.MultiDexApplication;
 
 
 import com.mbf5923.test.testapplication.DI.Component.DaggerAppComponent;
